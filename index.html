@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jorge Ponce Loyola — Ingeniero de Software</title>
+<meta name="description" content="Portafolio de Jorge Ponce Loyola, Ingeniero de Software basado en Lima, Perú.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Apply saved theme/lang before first paint to avoid a flash.
+  try {
+    document.documentElement.dataset.theme = localStorage.getItem('jpl-theme') || 'light';
+    document.documentElement.lang = localStorage.getItem('jpl-lang') || 'es';
+  } catch (e) {
+    document.documentElement.dataset.theme = 'light';
+  }
+</script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo">JP<span class="accent">.</span></a>
+      <nav class="nav">
+        <a href="#inicio" data-nav="inicio"><span data-i18n="nav0">Inicio</span><span class="dot"></span></a>
+        <a href="#experiencia" data-nav="experiencia"><span data-i18n="nav1">Experiencia</span><span class="dot"></span></a>
+        <a href="#proyectos" data-nav="proyectos"><span data-i18n="nav2">Proyectos</span><span class="dot"></span></a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language / Idioma">
+          <span data-lang="en">EN</span>
+          <span data-lang="es">ES</span>
+        </button>
+        <button class="theme-toggle" id="theme-toggle" type="button" data-i18n-aria="themeLabel" aria-label="Cambiar tema">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- INICIO -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-name">
+          <h1>Jorge Ponce<br>Loyola<span class="accent">.</span></h1>
+          <div class="hero-bar"></div>
+          <div class="socials">
+            <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub" class="icon-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><use href="#i-github"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" class="icon-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#i-linkedin"/></svg>
+            </a>
+            <a href="assets/CV-Jorge-Ponce-Loyola.docx" download="CV-Jorge-Ponce-Loyola.docx" aria-label="CV" class="pill-btn">CV ↓</a>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <div class="hero-arch"></div>
+          <div class="img-slot">
+            <img src="assets/img/foto-jorge.png" alt="Jorge Ponce Loyola">
+            <div class="img-placeholder">foto-jorge.png</div>
+          </div>
+        </div>
+
+        <div class="hero-about">
+          <div class="kicker">— <span data-i18n="aboutKicker">Sobre mí</span></div>
+          <h2 data-i18n="aboutTitle">Ingeniero de Software, basado en Lima, Perú.</h2>
+          <p data-i18n="aboutBody">Me apasiona el ciclo completo del software: entender el problema, construir la solución y ponerla en operación. Trabajo entre datos, backend y frontend, y hoy profundizo en IA aplicada a procesos.</p>
+          <a href="mailto:jorgeponceloyola09@gmail.com" class="link-arrow"><span data-i18n="writeMe">Escríbeme</span> <span>→</span></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section id="experiencia" class="section">
+      <div class="container section-inner">
+        <div class="section-head" data-reveal>
+          <h2 data-i18n="expTitle">Experiencia</h2>
+          <span class="muted" data-i18n="expSub">+1 año construyendo soluciones de datos y software</span>
+        </div>
+        <div class="exp-list" id="exp-list"></div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="section">
+      <div class="container section-inner projects-inner">
+        <div class="section-head projects-head" data-reveal>
+          <h2 data-i18n="projTitle">Proyectos</h2>
+          <div class="tabs" id="proj-tabs" role="tablist"></div>
+        </div>
+
+        <div class="proj-card" data-reveal>
+          <div class="proj-media" id="proj-media"></div>
+          <div class="proj-body" id="proj-body">
+            <div class="proj-meta" id="proj-meta"></div>
+            <h3 id="proj-name"></h3>
+            <p id="proj-desc"></p>
+            <div class="spacer"></div>
+            <div class="tags" id="proj-tech"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="muted small">© 2026 Jorge Ponce Loyola. <span data-i18n="rights">Todos los derechos reservados.</span></span>
+      <div class="footer-links">
+        <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub" class="flex">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><use href="#i-github"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" class="flex">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#i-linkedin"/></svg>
+        </a>
+        <a href="assets/CV-Jorge-Ponce-Loyola.docx" download="CV-Jorge-Ponce-Loyola.docx" class="mono-link">CV</a>
+        <a href="mailto:jorgeponceloyola09@gmail.com" class="link-arrow"><span data-i18n="contact">Contáctame</span> <span>→</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  </svg>
+
+  <script src="main.js"></script>
+</body>
+</html>

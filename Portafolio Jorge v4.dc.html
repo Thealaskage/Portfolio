@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jorge Ponce Loyola — Ingeniero de Software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent, #0066FF); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes growBar { from { width: 0; } to { width: 64px; } }
+</style>
+</helmet>
+
+<div style="--bg:{{ th.bg }}; --ink:{{ th.ink }}; --muted:{{ th.muted }}; --line:{{ th.line }}; --card:{{ th.card }}; --chip:{{ th.chip }}; --accent:{{ th.accent }}; --navbg:{{ th.navbg }}; --soft:{{ th.soft }}; background: var(--bg, #f7f7f4); color: var(--ink, #15151a); font-family: 'Outfit', sans-serif; font-size: 17px; line-height: 1.65; min-height: 100vh; transition: background-color .45s ease, color .45s ease;">
+
+  <!-- HEADER -->
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: var(--navbg, rgba(247,247,244,.8)); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line, #e4e3dd); transition: background-color .45s ease, border-color .45s ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="#inicio" style="font-weight: 700; font-size: 20px; letter-spacing: -.02em;">JP<span style="color: var(--accent, #0066FF);">.</span></a>
+      <nav style="display: flex; gap: 34px; align-items: center;">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="3">
+          <a href="{{ n.href }}" style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 15px; font-weight: 500; color: {{ n.color }}; transition: color .3s ease;">
+            <span>{{ n.label }}</span>
+            <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent, #0066FF); opacity: {{ n.dot }}; transform: scale({{ n.dot }}); transition: opacity .3s ease, transform .3s ease;"></span>
+          </a>
+        </sc-for>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div onClick="{{ toggleLang }}" style="display: flex; align-items: center; border: 1px solid var(--line, #e4e3dd); border-radius: 999px; padding: 3px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; transition: border-color .45s ease;">
+          <span style="padding: 5px 10px; border-radius: 999px; background: {{ langEnBg }}; color: {{ langEnInk }}; transition: background-color .3s ease, color .3s ease;">EN</span>
+          <span style="padding: 5px 10px; border-radius: 999px; background: {{ langEsBg }}; color: {{ langEsInk }}; transition: background-color .3s ease, color .3s ease;">ES</span>
+        </div>
+        <button onClick="{{ toggleTheme }}" aria-label="{{ t.themeLabel }}" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line, #e4e3dd); border-radius: 50%; background: transparent; color: var(--ink, #15151a); cursor: pointer; padding: 0; transition: border-color .45s ease, color .45s ease, transform .3s ease;" style-hover="transform: rotate(-20deg);">
+          <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          </sc-if>
+          <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"></path></svg>
+          </sc-if>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- INICIO -->
+  <section id="inicio" data-screen-label="Inicio" style="min-height: 100vh; box-sizing: border-box; padding: 110px 32px 0 32px; display: flex; align-items: flex-end;">
+    <div style="max-width: 1180px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; align-items: end;">
+
+      <div style="align-self: center; padding-bottom: 40px; animation: fadeUp .8s .1s both;">
+        <h1 style="margin: 0; font-size: clamp(48px, 6vw, 84px); font-weight: 600; line-height: 1; letter-spacing: -.035em;">Jorge Ponce<br>Loyola<span style="color: var(--accent, #0066FF);">.</span></h1>
+        <div style="height: 5px; width: 64px; background: var(--accent, #0066FF); border-radius: 3px; margin: 28px 0 40px 0; animation: growBar .9s .6s cubic-bezier(.2,.7,.2,1) both;"></div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="https://github.com/" target="_blank" aria-label="GitHub" style="width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line, #e4e3dd); border-radius: 50%; transition: border-color .3s ease, color .3s ease, transform .3s ease;" style-hover="border-color: var(--accent, #0066FF); color: var(--accent, #0066FF); transform: translateY(-2px);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" style="width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line, #e4e3dd); border-radius: 50%; transition: border-color .3s ease, color .3s ease, transform .3s ease;" style-hover="border-color: var(--accent, #0066FF); color: var(--accent, #0066FF); transform: translateY(-2px);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+          </a>
+          <a href="assets/CV-Jorge-Ponce-Loyola.docx" download="CV-Jorge-Ponce-Loyola.docx" aria-label="CV" style="height: 42px; padding: 0 16px; display: flex; align-items: center; border: 1px solid var(--line, #e4e3dd); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .08em; transition: border-color .3s ease, color .3s ease, transform .3s ease;" style-hover="border-color: var(--accent, #0066FF); color: var(--accent, #0066FF); transform: translateY(-2px);">CV ↓</a>
+        </div>
+      </div>
+
+      <div style="position: relative; justify-self: center; width: 100%; max-width: 380px; aspect-ratio: 4 / 5; animation: fadeUp 1s .25s both;">
+        <div style="position: absolute; left: 8%; right: 8%; bottom: 0; top: 18%; border-radius: 200px 200px 0 0; background: var(--soft, #e6ecfa); transition: background-color .45s ease;"></div>
+        <div style="position: absolute; inset: 0;">
+          <image-slot id="foto-jorge" shape="rect" placeholder="Arrastra aquí tu foto (fondo transparente ideal)"></image-slot>
+        </div>
+      </div>
+
+      <div style="align-self: center; padding-bottom: 40px; animation: fadeUp .8s .4s both;">
+        <div style="font-size: 14px; color: var(--muted, #6b6b75); margin-bottom: 14px;">— {{ t.aboutKicker }}</div>
+        <h2 style="margin: 0 0 16px 0; font-size: 24px; font-weight: 500; line-height: 1.3; letter-spacing: -.01em;">{{ t.aboutTitle }}</h2>
+        <p style="margin: 0 0 28px 0; font-size: 16px; color: var(--muted, #6b6b75); line-height: 1.7; max-width: 360px;">{{ t.aboutBody }}</p>
+        <a href="mailto:jorgeponceloyola09@gmail.com" style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--accent, #0066FF); border-bottom: 1px solid var(--accent, #0066FF); padding-bottom: 3px; transition: gap .3s ease;" style-hover="gap: 16px;">{{ t.writeMe }} <span>→</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia" data-screen-label="Experiencia" style="border-top: 1px solid var(--line, #e4e3dd); transition: border-color .45s ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 110px 32px 60px 32px;">
+      <div data-reveal="true" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 44px;">
+        <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); font-weight: 600; letter-spacing: -.03em;">{{ t.expTitle }}</h2>
+        <span style="font-size: 15px; color: var(--muted, #6b6b75);">{{ t.expSub }}</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <sc-for list="{{ exps }}" as="e" hint-placeholder-count="2">
+          <div data-reveal="true" style="border: 1px solid {{ e.border }}; border-radius: 16px; background: var(--card, #fff); overflow: hidden; transition: border-color .35s ease, background-color .45s ease, box-shadow .35s ease; box-shadow: {{ e.shadow }};">
+            <div onClick="{{ e.toggle }}" style="display: flex; align-items: center; gap: 20px; padding: 22px 28px; cursor: pointer;">
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 18px; font-weight: 500;">{{ e.role }}</div>
+                <div style="font-size: 14px; color: var(--muted, #6b6b75);">{{ e.company }}</div>
+              </div>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted, #6b6b75); white-space: nowrap;">{{ e.date }}</span>
+              <span style="width: 32px; height: 32px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: {{ e.btnBg }}; color: {{ e.btnInk }}; font-size: 18px; transform: rotate({{ e.rot }}); transition: transform .4s cubic-bezier(.2,.7,.2,1), background-color .3s ease, color .3s ease;">+</span>
+            </div>
+            <div style="display: grid; grid-template-rows: {{ e.rows }}; transition: grid-template-rows .5s cubic-bezier(.2,.7,.2,1);">
+              <div style="overflow: hidden; min-height: 0;">
+                <div style="padding: 0 28px 26px 28px; opacity: {{ e.op }}; transition: opacity .4s ease;">
+                  <div style="height: 1px; background: var(--line, #e4e3dd); margin-bottom: 20px;"></div>
+                  <ul style="margin: 0 0 18px 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; color: var(--muted, #6b6b75);">
+                    <sc-for list="{{ e.bullets }}" as="b" hint-placeholder-count="3">
+                      <li>{{ b }}</li>
+                    </sc-for>
+                  </ul>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <sc-for list="{{ e.tech }}" as="tg" hint-placeholder-count="3">
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 5px 12px; border-radius: 999px; background: var(--chip, #efeee8); transition: background-color .45s ease;">{{ tg }}</span>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" data-screen-label="Proyectos" style="border-top: 1px solid var(--line, #e4e3dd); transition: border-color .45s ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 110px 32px 120px 32px;">
+      <div data-reveal="true" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; margin-bottom: 40px;">
+        <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); font-weight: 600; letter-spacing: -.03em;">{{ t.projTitle }}</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px 22px;">
+          <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="5">
+            <button onClick="{{ tb.select }}" style="background: none; border: none; padding: 6px 0; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 500; color: {{ tb.color }}; border-bottom: 1.5px solid {{ tb.line }}; transition: color .3s ease, border-color .3s ease;">{{ tb.name }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div data-reveal="true" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border: 1px solid var(--line, #e4e3dd); border-radius: 20px; overflow: hidden; background: var(--card, #fff); transition: background-color .45s ease, border-color .45s ease;">
+        <div style="position: relative; min-height: 340px; background: var(--chip, #efeee8); transition: background-color .45s ease;">
+          <sc-for list="{{ projSlots }}" as="ps" hint-placeholder-count="1">
+            <div style="position: absolute; inset: 0; opacity: {{ ps.op }}; pointer-events: {{ ps.pe }}; transition: opacity .5s ease;">
+              <image-slot id="{{ ps.id }}" shape="rect" placeholder="{{ ps.ph }}"></image-slot>
+            </div>
+          </sc-for>
+        </div>
+        <div style="padding: 40px 40px 36px 40px; display: flex; flex-direction: column; gap: 14px; opacity: {{ projFade }}; transform: translateY({{ projShift }}); transition: opacity .35s ease, transform .35s ease;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent, #0066FF);">{{ proj.num }} / {{ projTotal }} · {{ proj.kind }}</div>
+          <h3 style="margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15;">{{ proj.name }}</h3>
+          <p style="margin: 0; font-size: 16px; color: var(--muted, #6b6b75); line-height: 1.7;">{{ proj.desc }}</p>
+          <div style="flex: 1;"></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 10px;">
+            <sc-for list="{{ proj.tech }}" as="tg" hint-placeholder-count="3">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line, #e4e3dd); transition: border-color .45s ease;">{{ tg }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid var(--line, #e4e3dd); transition: border-color .45s ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 44px 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;">
+      <span style="font-size: 14px; color: var(--muted, #6b6b75);">© 2026 Jorge Ponce Loyola. {{ t.rights }}</span>
+      <div style="display: flex; align-items: center; gap: 22px;">
+        <a href="https://github.com/" target="_blank" aria-label="GitHub" style="display: flex; transition: color .3s ease;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.260.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path></svg>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" style="display: flex; transition: color .3s ease;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.850 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.230.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+        </a>
+        <a href="assets/CV-Jorge-Ponce-Loyola.docx" download="CV-Jorge-Ponce-Loyola.docx" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .08em; transition: color .3s ease;">CV</a>
+        <a href="mailto:jorgeponceloyola09@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--accent, #0066FF); border-bottom: 1px solid var(--accent, #0066FF); padding-bottom: 2px; transition: gap .3s ease;" style-hover="gap: 14px;">{{ t.contact }} <span>→</span></a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const THEMES = {
+  light: { bg: '#f7f7f4', ink: '#15151a', muted: '#62626c', line: '#e4e3dd', card: '#ffffff', chip: '#efeee8', accent: '#0066FF', navbg: 'rgba(247,247,244,.82)', soft: '#e3eafa' },
+  dark:  { bg: '#0f1014', ink: '#ececef', muted: '#9c9daa', line: '#26272e', card: '#16171c', chip: '#1f2027', accent: '#5aa2ff', navbg: 'rgba(15,16,20,.78)', soft: '#172238' }
+};
+
+const TXT = {
+  es: {
+    nav: ['Inicio', 'Experiencia', 'Proyectos'],
+    themeLabel: 'Cambiar tema',
+    aboutKicker: 'Sobre mí',
+    aboutTitle: 'Ingeniero de Software, basado en Lima, Perú.',
+    aboutBody: 'Me apasiona el ciclo completo del software: entender el problema, construir la solución y ponerla en operación. Trabajo entre datos, backend y frontend, y hoy profundizo en IA aplicada a procesos.',
+    writeMe: 'Escríbeme',
+    expTitle: 'Experiencia',
+    expSub: '+1 año construyendo soluciones de datos y software',
+    projTitle: 'Proyectos',
+    rights: 'Todos los derechos reservados.',
+    contact: 'Contáctame',
+    slotPh: 'Arrastra una captura del proyecto'
+  },
+  en: {
+    nav: ['Home', 'Experience', 'Projects'],
+    themeLabel: 'Toggle theme',
+    aboutKicker: 'About me',
+    aboutTitle: 'Software Engineer, based in Lima, Peru.',
+    aboutBody: 'I care about the full software lifecycle: understanding the problem, building the solution and running it in production. I work across data, backend and frontend, currently going deeper into AI applied to processes.',
+    writeMe: 'Get in touch',
+    expTitle: 'Experience',
+    expSub: '1+ year building data and software solutions',
+    projTitle: 'Projects',
+    rights: 'All rights reserved.',
+    contact: 'Contact me',
+    slotPh: 'Drop a project screenshot'
+  }
+};
+
+const EXPS = [
+  {
+    es: { role: 'Practicante de Ingeniería de Datos', date: 'JUN 2025 — HOY',
+      bullets: [
+        'Arquitectura de datos Landing-to-Staging para Gestión de Conocimiento: +15 tablas, 12 vistas y +15 stored procedures.',
+        'Ingesta diaria automatizada con Power Automate y alertas en Microsoft Teams ante fallos.',
+        'Dashboard "Huella de Conocimiento" (Figma → Power BI), usado por las 7 áreas de la empresa.',
+        'Frontend de una app de detección de anomalías para mantenimiento preventivo.'
+      ] },
+    en: { role: 'Data Engineering Intern', date: 'JUN 2025 — NOW',
+      bullets: [
+        'Landing-to-Staging data architecture for Knowledge Management: 15+ tables, 12 views and 15+ stored procedures.',
+        'Automated daily ingestion with Power Automate and failure alerts in Microsoft Teams.',
+        '"Knowledge Footprint" dashboard (Figma → Power BI), used by all 7 company areas.',
+        'Frontend for an anomaly-detection app for preventive maintenance.'
+      ] },
+    company: 'ARPL Tecnología Industrial · Lima',
+    tech: ['SQL Server', 'ETL/ELT', 'Power Automate', 'Power BI', 'Tailwind CSS']
+  },
+  {
+    es: { role: 'Practicante de Análisis de Datos', date: 'DIC 2024 — JUN 2025',
+      bullets: [
+        'Dashboard "Directorio" integrando 5 fuentes de datos con ETL en Power Query y modelado DAX.',
+        'MVPs en Power Apps ("Lecciones Aprendidas", "Certificados") con Power Automate, AI Builder y SharePoint.',
+        'Documentación técnica con Bizagi Modeler y estructura de roles y permisos en SharePoint.'
+      ] },
+    en: { role: 'Data Analyst Intern', date: 'DEC 2024 — JUN 2025',
+      bullets: [
+        '"Directory" dashboard integrating 5 data sources with Power Query ETL and DAX modeling.',
+        'Power Apps MVPs ("Lessons Learned", "Certificates") with Power Automate, AI Builder and SharePoint.',
+        'Technical documentation with Bizagi Modeler and role/permission structure in SharePoint.'
+      ] },
+    company: 'ARPL Tecnología Industrial · Lima',
+    tech: ['Power Query', 'DAX', 'Power Apps', 'AI Builder', 'SharePoint']
+  }
+];
+
+const PROJS = [
+  { id: 'reportia', name: 'Reportia',
+    es: { kind: 'Por completar', desc: 'Descripción del proyecto pendiente — cuéntame de qué trata y lo agrego aquí.' },
+    en: { kind: 'Coming soon', desc: 'Project description pending.' },
+    tech: [] },
+  { id: 'huella', name: 'Dashboard Huella',
+    es: { kind: 'Dashboard estratégico', desc: 'Dashboard usado por las 7 áreas de la empresa para incentivar el intercambio de conocimiento. Diseñado en Figma y construido en Power BI, con métricas y narrativa de datos definidas junto al negocio.' },
+    en: { kind: 'Strategic dashboard', desc: 'Dashboard used by all 7 company areas to encourage knowledge sharing. Designed in Figma and built in Power BI, with metrics and data storytelling defined alongside the business.' },
+    tech: ['Power BI', 'DAX', 'Figma'] },
+  { id: 'eya', name: 'EYA',
+    es: { kind: 'Eventos y asistencia', desc: 'Gestión de eventos con registro de asistencia presencial por escaneo QR y validación automática de asistencia virtual, parametrizable por el negocio.' },
+    en: { kind: 'Events & attendance', desc: 'Event management with in-person attendance via QR scanning and automatic validation of virtual attendance, configurable by the business.' },
+    tech: ['Power Apps', 'Power Automate', 'QR'] },
+  { id: 'certificados', name: 'App Certificados',
+    es: { kind: 'Power Apps', desc: 'MVP para la gestión de certificados con flujos automatizados, extracción de datos con AI Builder y SharePoint como repositorio estructurado.' },
+    en: { kind: 'Power Apps', desc: 'MVP for certificate management with automated flows, AI Builder data extraction and SharePoint as a structured repository.' },
+    tech: ['Power Apps', 'Power Automate', 'AI Builder', 'SharePoint'] },
+  { id: 'anomalias', name: 'Detección de Anomalías',
+    es: { kind: 'Frontend industrial', desc: 'Frontend para el mantenimiento preventivo de activos en producción de cemento. Arquitectura Feature-Driven + Atomic Design y rediseño UX/UI con buena aceptación de los usuarios.' },
+    en: { kind: 'Industrial frontend', desc: 'Frontend for preventive maintenance of cement production assets. Feature-Driven + Atomic Design architecture and a UX/UI redesign well received by users.' },
+    tech: ['Tailwind CSS', 'Atomic Design', 'Feature-Driven'] }
+];
+
+class Component extends DCLogic {
+  state = {
+    theme: (() => { try { return localStorage.getItem('jpl-theme') || 'light'; } catch (e) { return 'light'; } })(),
+    lang: (() => { try { return localStorage.getItem('jpl-lang') || 'es'; } catch (e) { return 'es'; } })(),
+    open: 0,
+    proj: 1,
+    fading: false,
+    active: 'inicio'
+  };
+
+  setTheme(theme) { this.setState({ theme }); try { localStorage.setItem('jpl-theme', theme); } catch (e) {} }
+  setLang(lang) { this.setState({ lang }); try { localStorage.setItem('jpl-lang', lang); } catch (e) {} }
+
+  selectProj(i) {
+    if (i === this.state.proj) return;
+    this.setState({ fading: true });
+    clearTimeout(this._ft);
+    this._ft = setTimeout(() => this.setState({ proj: i, fading: false }), 220);
+  }
+
+  renderVals() {
+    const { theme, lang, open, proj, fading, active } = this.state;
+    const th = THEMES[theme] || THEMES.light;
+    const t = TXT[lang] || TXT.es;
+    const ids = ['inicio', 'experiencia', 'proyectos'];
+
+    const nav = ids.map((id, i) => ({
+      href: '#' + id,
+      label: t.nav[i],
+      dot: active === id ? 1 : 0,
+      color: active === id ? th.ink : th.muted
+    }));
+
+    const exps = EXPS.map((x, i) => {
+      const o = open === i;
+      const L = x[lang] || x.es;
+      return {
+        role: L.role, date: L.date, bullets: L.bullets, company: x.company, tech: x.tech,
+        rows: o ? '1fr' : '0fr', op: o ? 1 : 0, rot: o ? '45deg' : '0deg',
+        border: o ? th.accent : th.line,
+        shadow: o ? (theme === 'dark' ? '0 12px 40px rgba(0,0,0,.35)' : '0 12px 40px rgba(20,30,60,.07)') : 'none',
+        btnBg: o ? th.accent : th.chip,
+        btnInk: o ? '#ffffff' : th.ink,
+        toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i }))
+      };
+    });
+
+    const tabs = PROJS.map((p, i) => ({
+      name: p.name,
+      color: proj === i ? th.ink : th.muted,
+      line: proj === i ? th.accent : 'transparent',
+      select: () => this.selectProj(i)
+    }));
+
+    const P = PROJS[proj];
+    const PL = P[lang] || P.es;
+    const projSlots = PROJS.map((p, i) => ({
+      id: 'proyecto-' + p.id, ph: t.slotPh + ' · ' + p.name,
+      op: proj === i ? 1 : 0, pe: proj === i ? 'auto' : 'none'
+    }));
+
+    return {
+      th, t, nav, exps, tabs, projSlots,
+      proj: { name: P.name, kind: PL.kind, desc: PL.desc, tech: P.tech, num: String(proj + 1).padStart(2, '0') },
+      projTotal: String(PROJS.length).padStart(2, '0'),
+      projFade: fading ? 0 : 1,
+      projShift: fading ? '8px' : '0px',
+      isDark: theme === 'dark',
+      isLight: theme !== 'dark',
+      langEsBg: lang === 'es' ? th.ink : 'transparent',
+      langEsInk: lang === 'es' ? th.bg : th.muted,
+      langEnBg: lang === 'en' ? th.ink : 'transparent',
+      langEnInk: lang === 'en' ? th.bg : th.muted,
+      toggleTheme: () => this.setTheme(theme === 'dark' ? 'light' : 'dark'),
+      toggleLang: () => this.setLang(lang === 'es' ? 'en' : 'es')
+    };
+  }
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const ids = ['inicio', 'experiencia', 'proyectos'];
+      let cur = 'inicio';
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) cur = id;
+      });
+      if (cur !== this.state.active) this.setState({ active: cur });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+
+    const els = document.querySelectorAll('[data-reveal]');
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = '1';
+          en.target.style.transform = 'none';
+          this._io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+    els.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1), border-color .35s ease, background-color .45s ease, box-shadow .35s ease';
+      this._io.observe(el);
+    });
+    this._failsafe = setInterval(() => {
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0 && el.style.opacity === '0') {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+    }, 600);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    clearInterval(this._failsafe);
+    clearTimeout(this._ft);
+  }
+}
+</script>
+</body>
+</html>
