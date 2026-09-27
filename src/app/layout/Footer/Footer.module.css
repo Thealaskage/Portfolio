@@ -1,0 +1,38 @@
+.footer {
+  border-top: 1px solid var(--line);
+  transition: border-color var(--t-theme);
+}
+
+.inner {
+  padding-top: 36px;
+  padding-bottom: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.copy {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.icon {
+  display: flex;
+  transition: color var(--t-fast);
+}
+
+.cv {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  transition: color var(--t-fast);
+}

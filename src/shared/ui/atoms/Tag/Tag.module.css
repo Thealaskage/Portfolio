@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  transition:
+    background-color var(--t-theme),
+    border-color var(--t-theme);
+}
+
+.filled {
+  background: var(--chip);
+}
+
+.outline {
+  border: 1px solid var(--line);
+}

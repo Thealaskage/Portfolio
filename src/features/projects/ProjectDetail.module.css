@@ -1,0 +1,49 @@
+.detail {
+  padding: 40px 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.fading {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.name {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.desc {
+  margin: 0;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.tags {
+  padding-top: 10px;
+}
+
+@media (max-width: 720px) {
+  .detail {
+    padding: 28px 22px;
+  }
+}

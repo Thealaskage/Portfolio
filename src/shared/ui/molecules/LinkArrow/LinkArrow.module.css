@@ -1,0 +1,27 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  transition: gap var(--t-fast);
+}
+
+.md {
+  gap: 10px;
+  padding-bottom: 3px;
+}
+
+.md:hover {
+  gap: 16px;
+}
+
+.sm {
+  gap: 8px;
+  padding-bottom: 2px;
+}
+
+.sm:hover {
+  gap: 14px;
+}

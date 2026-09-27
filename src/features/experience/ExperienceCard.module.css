@@ -1,0 +1,130 @@
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--card);
+  overflow: hidden;
+  transition:
+    border-color 0.35s ease,
+    background-color var(--t-theme),
+    box-shadow 0.35s ease;
+}
+
+.open {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-open);
+}
+
+.head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 28px;
+  background: none;
+  border: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.titles {
+  flex: 1;
+  min-width: 0;
+}
+
+.role {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.company {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.plus {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--chip);
+  color: var(--ink);
+  font-size: 18px;
+  transition:
+    transform 0.4s var(--ease-out),
+    background-color var(--t-fast),
+    color var(--t-fast);
+}
+
+.open .plus {
+  background: var(--accent);
+  color: var(--on-accent);
+  transform: rotate(45deg);
+}
+
+/* Height animation: grid row 0fr → 1fr */
+.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-out);
+}
+
+.open .collapse {
+  grid-template-rows: 1fr;
+}
+
+.clip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.body {
+  padding: 0 28px 26px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.open .body {
+  opacity: 1;
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 20px;
+}
+
+.bullets {
+  margin: 0 0 18px;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .head {
+    padding: 18px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .date {
+    order: 3;
+    width: 100%;
+  }
+  .body {
+    padding: 0 18px 22px;
+  }
+}

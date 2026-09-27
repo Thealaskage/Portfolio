@@ -1,0 +1,15 @@
+.section {
+  border-top: 1px solid var(--line);
+  transition: border-color var(--t-theme);
+}
+
+.inner {
+  padding-top: var(--header-offset);
+  padding-bottom: 60px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
