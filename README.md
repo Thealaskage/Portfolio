@@ -36,4 +36,4 @@ Reglas: los features importan de `shared/`, nunca entre sí. Cada componente viv
 - Experiencia: `src/features/experience/experience.data.ts`
 - Proyectos: `src/features/projects/projects.data.ts`
 - Links (GitHub, LinkedIn, correo, CV): `src/shared/config/site.ts`
-- Imágenes: `public/assets/img/foto-jorge.png` y `public/assets/img/proyecto-<id>.png`
+- Imágenes: `public/assets/img/foto-jorge.webp` y `public/assets/img/proyecto-<id>.png`

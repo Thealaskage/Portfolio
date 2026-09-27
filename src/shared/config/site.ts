@@ -8,5 +8,5 @@ export const SITE = {
     href: '/assets/CV-Jorge-Ponce-Loyola.docx',
     filename: 'CV-Jorge-Ponce-Loyola.docx',
   },
-  photo: '/assets/img/foto-jorge.png',
+  photo: '/assets/img/foto-jorge.webp',
 } as const

@@ -36,7 +36,7 @@ export const DICTIONARIES: Localized<Dictionary> = {
     projTitle: 'Proyectos',
     rights: 'Todos los derechos reservados.',
     contact: 'Contáctame',
-    photoPh: 'foto-jorge.png',
+    photoPh: 'foto-jorge.webp',
     slotPh: 'Captura del proyecto',
   },
   en: {
@@ -55,7 +55,7 @@ export const DICTIONARIES: Localized<Dictionary> = {
     projTitle: 'Projects',
     rights: 'All rights reserved.',
     contact: 'Contact me',
-    photoPh: 'foto-jorge.png',
+    photoPh: 'foto-jorge.webp',
     slotPh: 'Project screenshot',
   },
 }
