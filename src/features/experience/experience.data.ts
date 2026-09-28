@@ -9,28 +9,32 @@ export interface Experience {
 
 export const EXPERIENCES: readonly Experience[] = [
   {
-    id: 'arpl-data-eng',
+    id: 'arpl-software-eng',
     company: 'ARPL Tecnología Industrial · Lima',
-    tech: ['SQL Server', 'ETL/ELT', 'Power Automate', 'Power BI', 'Tailwind CSS'],
+    tech: ['SQL Server', 'PostgreSQL', 'Python', 'FastAPI', 'React', 'Power BI', 'Power Automate', 'Power Apps', 'SharePoint'],
     content: {
       es: {
-        role: 'Practicante de Ingeniería de Datos',
+        role: 'Practicante de Ingeniería de Software',
         date: 'JUN 2025 — HOY',
         bullets: [
-          'Arquitectura de datos Landing-to-Staging para Gestión de Conocimiento: +15 tablas, 12 vistas y +15 stored procedures.',
-          'Ingesta diaria automatizada con Power Automate y alertas en Microsoft Teams ante fallos.',
-          'Dashboard "Huella de Conocimiento" (Figma → Power BI), usado por las 7 áreas de la empresa.',
-          'Frontend de una app de detección de anomalías para mantenimiento preventivo.',
+          'Diseñé en SQL Server la base de datos de Gestión de Conocimiento y su ingesta diaria automática.',
+          'Por iniciativa propia, creé alertas en Microsoft Teams que avisan cuando una ingesta falla.',
+          'Construí el dashboard "Huella de Conocimiento" (Figma → Power BI), que usan las 7 áreas de la empresa.',
+          'Desarrollé el frontend y endpoints en FastAPI de una app de mantenimiento predictivo para UNACEM.',
+          'Desarrollé la app "Certificados" en Power Apps, con 4 roles y aprobación en dos etapas enrutada automáticamente por comunidad.',
+          'Agregué funciones a 4 apps de eventos en Power Apps, incluido el registro de asistencia por QR.',
         ],
       },
       en: {
-        role: 'Data Engineering Intern',
+        role: 'Software Engineering Intern',
         date: 'JUN 2025 — NOW',
         bullets: [
-          'Landing-to-Staging data architecture for Knowledge Management: 15+ tables, 12 views and 15+ stored procedures.',
-          'Automated daily ingestion with Power Automate and failure alerts in Microsoft Teams.',
-          '"Knowledge Footprint" dashboard (Figma → Power BI), used by all 7 company areas.',
-          'Frontend for an anomaly-detection app for preventive maintenance.',
+          'Designed the Knowledge Management database in SQL Server and its automated daily ingestion.',
+          'On my own initiative, built Microsoft Teams alerts that fire when an ingestion fails.',
+          'Built the "Knowledge Footprint" dashboard (Figma → Power BI), used by all 7 company areas.',
+          'Developed the frontend and FastAPI endpoints of a predictive maintenance app for UNACEM.',
+          'Built the "Certificates" app in Power Apps, with 4 roles and a two-stage approval routed automatically by community.',
+          'Added features to 4 event apps in Power Apps, including QR-based attendance tracking.',
         ],
       },
     },
@@ -38,24 +42,24 @@ export const EXPERIENCES: readonly Experience[] = [
   {
     id: 'arpl-data-analyst',
     company: 'ARPL Tecnología Industrial · Lima',
-    tech: ['Power Query', 'DAX', 'Power Apps', 'AI Builder', 'SharePoint'],
+    tech: ['Power BI', 'DAX', 'Power Query', 'Power Apps', 'Power Automate', 'SharePoint'],
     content: {
       es: {
         role: 'Practicante de Análisis de Datos',
         date: 'DIC 2024 — JUN 2025',
         bullets: [
-          'Dashboard "Directorio" integrando 5 fuentes de datos con ETL en Power Query y modelado DAX.',
-          'MVPs en Power Apps ("Lecciones Aprendidas", "Certificados") con Power Automate, AI Builder y SharePoint.',
-          'Documentación técnica con Bizagi Modeler y estructura de roles y permisos en SharePoint.',
+          'Desarrollé el dashboard "Directorio" en Power BI, que integra 5 fuentes de datos y usan las 7 áreas de la empresa.',
+          'Creé en Power Apps "Lecciones Aprendidas", para Gestión de Proyectos, con revisión por roles, notificaciones y generación de PDFs con Power Automate.',
+          'Documenté los procesos en Bizagi Modeler y definí la estructura de roles y permisos en SharePoint.',
         ],
       },
       en: {
         role: 'Data Analyst Intern',
         date: 'DEC 2024 — JUN 2025',
         bullets: [
-          '"Directory" dashboard integrating 5 data sources with Power Query ETL and DAX modeling.',
-          'Power Apps MVPs ("Lessons Learned", "Certificates") with Power Automate, AI Builder and SharePoint.',
-          'Technical documentation with Bizagi Modeler and role/permission structure in SharePoint.',
+          'Developed the "Directory" dashboard in Power BI, which integrates 5 data sources and is used by all 7 company areas.',
+          'Created "Lessons Learned" in Power Apps for Project Management, with role-based review, notifications and PDF generation with Power Automate.',
+          'Documented processes in Bizagi Modeler and defined the roles and permissions structure in SharePoint.',
         ],
       },
     },

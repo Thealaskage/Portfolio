@@ -1,6 +1,7 @@
 import { cx } from '@/shared/lib/cx'
-import { usePreferences } from '@/shared/preferences/PreferencesContext'
+import { usePreferences, useT } from '@/shared/preferences/PreferencesContext'
 import { TagList } from '@/shared/ui/atoms/Tag/Tag'
+import { LinkArrow } from '@/shared/ui/molecules/LinkArrow/LinkArrow'
 import type { Project } from './projects.data'
 import styles from './ProjectDetail.module.css'
 
@@ -15,6 +16,7 @@ const pad = (n: number) => String(n).padStart(2, '0')
 
 export function ProjectDetail({ project, index, total, fading }: ProjectDetailProps) {
   const { lang } = usePreferences()
+  const t = useT()
   const { kind, desc } = project.content[lang]
 
   return (
@@ -24,6 +26,11 @@ export function ProjectDetail({ project, index, total, fading }: ProjectDetailPr
       </div>
       <h3 className={styles.name}>{project.name}</h3>
       <p className={styles.desc}>{desc}</p>
+      {project.url && (
+        <LinkArrow href={project.url} target="_blank" rel="noopener noreferrer" size="sm" className={styles.link}>
+          {t.projLink}
+        </LinkArrow>
+      )}
       <div className={styles.spacer} />
       {project.tech.length > 0 && (
         <div className={styles.tags}>

@@ -37,7 +37,7 @@ export function ProjectsSection() {
         />
 
         <div data-reveal className={styles.card}>
-          <div className={styles.media}>
+          <div className={styles.media} style={{ backgroundColor: PROJECTS[active].brand }}>
             {PROJECTS.map((p, i) => (
               <ImageSlot
                 key={p.id}

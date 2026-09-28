@@ -8,9 +8,10 @@
   padding-bottom: 120px;
 }
 
+/* Wider media column: screenshots are landscape, so the panel is shaped like one */
 .card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   border: 1px solid var(--line);
   border-radius: var(--radius-panel);
   overflow: hidden;
@@ -20,22 +21,38 @@
     border-color var(--t-theme);
 }
 
+/* Panel in the project's brand colour (inline); the screenshot floats with even margins */
 .media {
-  position: relative;
-  min-height: 340px;
-  background: var(--chip);
-  transition: background-color var(--t-theme);
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  min-height: 320px;
+  background-color: var(--soft);
+  transition: background-color 0.5s ease;
 }
 
-.slide {
-  position: absolute;
-  inset: 0;
+/* All slides share one grid cell and cross-fade */
+.media .slide {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
 
-.slideActive {
+/* Landscape shots fill the width; portrait (phone) shots are capped in height and centred */
+.media .slide img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 440px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 24px 48px rgba(10, 20, 60, 0.35);
+}
+
+.media .slideActive {
   opacity: 1;
   pointer-events: auto;
 }
@@ -45,6 +62,9 @@
     grid-template-columns: 1fr;
   }
   .media {
-    min-height: 240px;
+    padding: 20px;
+    min-height: 220px;
   }
-}
+  .media .slide img {
+    max-height: 340px;
+  }}

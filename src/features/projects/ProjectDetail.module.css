@@ -34,6 +34,11 @@
   line-height: 1.7;
 }
 
+.link {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
 .spacer {
   flex: 1;
 }

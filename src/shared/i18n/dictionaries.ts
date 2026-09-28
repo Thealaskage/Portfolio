@@ -13,6 +13,7 @@ export interface Dictionary {
   expTitle: string
   expSub: string
   projTitle: string
+  projLink: string
   rights: string
   contact: string
   photoPh: string
@@ -29,11 +30,12 @@ export const DICTIONARIES: Localized<Dictionary> = {
     aboutKicker: 'Sobre mí',
     aboutTitle: 'Ingeniero de Software, basado en Lima, Perú.',
     aboutBody:
-      'Me apasiona el ciclo completo del software: entender el problema, construir la solución y ponerla en operación. Trabajo entre datos, backend y frontend, y hoy profundizo en IA aplicada a procesos.',
+      'Llevo dos años construyendo herramientas que equipos reales usan todos los días. Lo que más disfruto es sentarme con quien tiene el problema, entenderlo bien y volver con algo que le ahorre horas o le haga la vida más fácil.',
     writeMe: 'Escríbeme',
     expTitle: 'Experiencia',
-    expSub: '+1 año construyendo soluciones de datos y software',
+    expSub: 'Desde diciembre de 2024 · datos, automatización y frontend',
     projTitle: 'Proyectos',
+    projLink: 'Ver proyecto',
     rights: 'Todos los derechos reservados.',
     contact: 'Contáctame',
     photoPh: 'foto-jorge.webp',
@@ -48,11 +50,12 @@ export const DICTIONARIES: Localized<Dictionary> = {
     aboutKicker: 'About me',
     aboutTitle: 'Software Engineer, based in Lima, Peru.',
     aboutBody:
-      'I care about the full software lifecycle: understanding the problem, building the solution and running it in production. I work across data, backend and frontend, currently going deeper into AI applied to processes.',
+      'I have spent two years building tools that real teams use every day. What I enjoy most is sitting down with whoever has the problem, understanding it well, and coming back with something that saves them hours or makes their life easier.',
     writeMe: 'Get in touch',
     expTitle: 'Experience',
-    expSub: '1+ year building data and software solutions',
+    expSub: 'Since December 2024 · data, automation and frontend',
     projTitle: 'Projects',
+    projLink: 'View project',
     rights: 'All rights reserved.',
     contact: 'Contact me',
     photoPh: 'foto-jorge.webp',
