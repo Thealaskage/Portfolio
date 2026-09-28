@@ -9,7 +9,7 @@
   --chip: #efeee8;
   --accent: #0066ff;
   --on-accent: #ffffff;
-  --navbg: rgba(247, 247, 244, 0.82);
+  --navbg: #f7f7f4;
   --soft: #e3eafa;
   --shadow-open: 0 12px 40px rgba(20, 30, 60, 0.07);
 
@@ -41,7 +41,7 @@
   --card: #16171c;
   --chip: #1f2027;
   --accent: #5aa2ff;
-  --navbg: rgba(15, 16, 20, 0.78);
+  --navbg: #0f1014;
   --soft: #172238;
   --shadow-open: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
