@@ -32,7 +32,7 @@ export const EXPERIENCES: readonly Experience[] = [
     content: {
       es: {
         role: 'Practicante de Ingeniería de Software',
-        date: 'JUN 2025 — HOY',
+        date: 'JUN 2025 — OCT 2026',
         bullets: [
           'Diseñé en SQL Server la base de datos de Gestión de Conocimiento y su ingesta diaria automática.',
           'Por iniciativa propia, creé alertas en Microsoft Teams que avisan cuando una ingesta falla.',
@@ -44,7 +44,7 @@ export const EXPERIENCES: readonly Experience[] = [
       },
       en: {
         role: 'Software Engineering Intern',
-        date: 'JUN 2025 — NOW',
+        date: 'JUN 2025 — OCT 2026',
         bullets: [
           'Designed the Knowledge Management database in SQL Server and its automated daily ingestion.',
           'On my own initiative, built Microsoft Teams alerts that fire when an ingestion fails.',
