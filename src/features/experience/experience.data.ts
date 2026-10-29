@@ -9,6 +9,23 @@ export interface Experience {
 
 export const EXPERIENCES: readonly Experience[] = [
   {
+    id: 'tcs-software-eng',
+    company: 'Tata Consultancy Services · Lima',
+    tech: [],
+    content: {
+      es: {
+        role: 'Ingeniero de Software / Developer',
+        date: 'OCT 2026 — HOY',
+        bullets: ['Me incorporé como Ingeniero de Software / Developer en Tata Consultancy Services.'],
+      },
+      en: {
+        role: 'Software Engineer / Developer',
+        date: 'OCT 2026 — NOW',
+        bullets: ['Joined Tata Consultancy Services as a Software Engineer / Developer.'],
+      },
+    },
+  },
+  {
     id: 'arpl-software-eng',
     company: 'ARPL Tecnología Industrial · Lima',
     tech: ['SQL Server', 'PostgreSQL', 'Python', 'FastAPI', 'React', 'Power BI', 'Power Automate', 'Power Apps', 'SharePoint'],
